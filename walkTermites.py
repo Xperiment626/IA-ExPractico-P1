@@ -49,26 +49,23 @@ def walk(steps, interval, termites, chips, maxLimit):
     gameOver = False
     auxInd = 0
     for ts in range(steps):
-        # print('\r'+str(ts),end='')
         auxInd = ts
-        #print(len(chipList), len(posChips))
-        #print(posChips)
         for i, tc in enumerate(tlist):
             # postions of all chips in the canvas
             posChips = {c.getPos(): c.index for c in chipList}
 
             posT = termList[i].pickChip(posChips)
             
-            # Change color of chip if pickChip NOT returns None
             if posT is not None:
-                #if ts > steps - 100: 
                 ind = posChips[posT]
                 clist[ind].goto(chipList[ind].getPos())
                 gameOver = True
             else:
                 termList[i].move(limits, chipList[0].getPos(), interval)
+                if ts % 3 == 0:
+                    chipList[0].setPos((r.randint(limits[0], limits[1]), r.randint(limits[2], limits[3])))
+                    clist[0].goto(chipList[0].getPos())
 
-            #if ts > steps - 100: 
             tc.goto(termList[i].getPos())
             
             if gameOver:
@@ -81,7 +78,7 @@ def walk(steps, interval, termites, chips, maxLimit):
                 break
 
 
-        sleep(0.4)
+        sleep(0.2)
         # screen.update()
         screen.tracer() # Se refrescara la pantalla cada 10 ejecuciones
         if gameOver:

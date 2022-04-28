@@ -108,6 +108,9 @@ class Chip:
 
     def getPos(self):
         return self.posicion
+    
+    def setPos(self, pos):
+        self.posicion = pos
 
     def getColor(self):
         return self.color
