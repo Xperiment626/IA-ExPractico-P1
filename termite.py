@@ -76,7 +76,6 @@ class Termite:
         if self.posicion[1] > limits[0] and self.posicion[0] < limits[3]:
             movesList.append(self.moveDownRight(interval))
             
-        
         # Saving the values of every euclidean distance calculated
         EuclideanDistancesList = []
         

@@ -78,7 +78,7 @@ def walk(steps, interval, termites, chips, maxLimit):
                 break
 
 
-        sleep(0.2)
+        sleep(0.3)
         # screen.update()
         screen.tracer() # Se refrescara la pantalla cada 10 ejecuciones
         if gameOver:
